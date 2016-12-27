@@ -12,6 +12,10 @@
   <body>
     <%= render 'layouts/menu' %>
     <div class="container">
+      <% unless flash[:notice].blank? %>
+        <div class="alert alert-info"><%= flash[:notice] %></div>
+      <% end -%>
+      
       <%= yield %>
     </div>
 

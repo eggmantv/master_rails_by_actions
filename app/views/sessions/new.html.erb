@@ -1,0 +1,27 @@
+<h1>登陆</h1>
+<%= form_tag sessions_path, method: :post, class: "form-horizontal" do %>
+  <div class="form-group">
+    <div class="col-lg-12">邮箱</div>
+    <div class="col-lg-12">
+      <%= text_field_tag :email, nil, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-12">密码</div>
+    <div class="col-lg-12">
+      <%= password_field_tag :password, nil, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-12">
+      <div class="pull-right">
+        <a href="<%= new_user_path %>">注册</a>
+      </div>
+    </div>
+  </div>        
+  <div class="form-group">
+    <div class="col-lg-12">
+      <input type="submit" name="sign_submit" value="登陆" class="col-xs-12 btn btn-primary"> 
+    </div>
+  </div>
+<% end -%>
