@@ -1,6 +1,6 @@
 # eggman.tv
 
-**[精通Rails实战开发](http://eggman.tv/c/s-master-rails-by-actions)课程源码**
+**[Rails实战之B2C商城开发](http://eggman.tv/c/s-master-rails-by-actions)课程源码**
 
 为了方便在每节课的代码间进行切换，该课程是通过git tag的方式来组织的，就是每节课对应一个git tag。
 
