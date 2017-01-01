@@ -14,7 +14,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
 
     add_index :products, [:status, :category_id]
     add_index :products, [:category_id]
-    add_index :products, [:uuid]
+    add_index :products, [:uuid], unique: true
     add_index :products, [:title]
   end
 end
