@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>管理平台 - 蛋人商城</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'admin', media: 'all' %>
+    <%= yield :stylesheets %>
+  </head>
+
+  <body>
+    <%= render 'admin/layouts/menu' %>
+    <div class="container">
+      <% unless flash[:notice].blank? %>
+        <div class="alert alert-info"><%= flash[:notice] %></div>
+      <% end -%>
+      
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag 'admin' %>
+    <%= yield :javascripts %>
+  </body>
+</html>
