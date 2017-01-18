@@ -199,6 +199,7 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    will_paginate (3.1.5)
 
 PLATFORMS
   ruby
@@ -225,6 +226,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
+  will_paginate
 
 BUNDLED WITH
    1.13.6
