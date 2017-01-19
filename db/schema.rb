@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170101073948) do
+ActiveRecord::Schema.define(version: 20170119093958) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20170101073948) do
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
     t.index ["title"], name: "index_categories_on_title", using: :btree
+  end
+
+  create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id"
+    t.integer  "weight",             default: 0
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["product_id", "weight"], name: "index_product_images_on_product_id_and_weight", using: :btree
+    t.index ["product_id"], name: "index_product_images_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -37,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170101073948) do
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["status", "category_id"], name: "index_products_on_status_and_category_id", using: :btree
     t.index ["title"], name: "index_products_on_title", using: :btree
-    t.index ["uuid"], name: "index_products_on_uuid", using: :btree
+    t.index ["uuid"], name: "index_products_on_uuid", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
