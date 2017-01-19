@@ -1,0 +1,42 @@
+<div>
+  <div class="pull-right">
+    <%= link_to "新建商品", new_admin_product_path, class: "btn btn-primary" %>
+  </div>
+
+  <h1>
+    商品(<%= @products.total_entries %>)
+  </h1>
+</div>
+
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>名称</th>
+      <th>UUID/SKU</th>
+      <th>MSRP</th>
+      <th>Price</th>
+      <th>库存</th>
+      <th>状态</th>
+      <th></th>
+    </tr>
+
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.title %></td>
+        <td><%= product.uuid %></td>
+        <td><%= product.msrp %></td>
+        <td><%= product.price %></td>
+        <td><%= product.amount %></td>
+        <td><%= product.status %></td>
+        <td align="right">
+          <%= link_to "编辑", edit_admin_product_path(product) %> 
+          <%= link_to "删除", admin_product_path(product), method: :delete, 'data-confirm': "确认删除吗?" %>
+        </td>
+      </tr>
+    <% end -%>
+  </table>
+
+  <%= will_paginate @products %>
+</div>
