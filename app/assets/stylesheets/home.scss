@@ -1,0 +1,15 @@
+.list-group-item a {
+  display: block;
+}
+.msrp {
+  text-decoration: line-through;
+}
+.thumbnail {
+  height: 290px;
+  &.detail {
+    height: auto;
+  }
+  a.title {
+    color: #333;
+  }
+}

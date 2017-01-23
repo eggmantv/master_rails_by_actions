@@ -1,0 +1,8 @@
+<ul class="list-group">
+  <% @categories.each do |group| %>
+    <li class="list-group-item"><%= group.first.title %></li>
+    <% group.last.each do |sub_category| %>
+      <li class="list-group-item"><a href="<%= category_path(sub_category) %>"><%= sub_category.title %></a></li>
+    <% end -%>
+  <% end -%>
+</ul>
