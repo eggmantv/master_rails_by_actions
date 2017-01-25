@@ -15,7 +15,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="<%= root_path %>">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">分类</a></li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -24,7 +23,7 @@
         <button type="submit" class="btn btn-default">搜索</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">购物车</a></li>
+        <li><%= link_to "购物车(#{@shopping_cart_count})", shopping_carts_path %></li>
         <% unless logged_in? %>
           <li><a href="<%= new_user_path %>">注册</a></li>
           <li><a href="<%= new_session_path %>">登录</a></li>

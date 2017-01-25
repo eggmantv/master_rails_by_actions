@@ -1,0 +1,25 @@
+<div class="modal fade" tabindex="-1" id="shopping_cart_modal">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h4 class="text text-success"><i class='fa fa-check-circle-o'></i> 加入购物车成功</h4>
+
+        <div class="media">
+          <div class="media-left">
+            <a href="javascript:;">
+              <%= image_tag @product.main_product_image.image.url(:small), class: 'media-object', alt: @product.title %>
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"><%= @product.title %></h4>
+            数量: <%= @shopping_cart.amount %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">继续购物</button>
+        <%= link_to "查看购物车", shopping_carts_path, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>

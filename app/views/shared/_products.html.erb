@@ -6,7 +6,7 @@
         <div class="caption">
           <h4><%= link_to product.title, product_path(product), class: 'title' %></h4>
           <p><strong>¥<%= product.price %></strong> <span class="msrp">¥<%= product.msrp %></span></p>
-          <p><a href="#" class="btn btn-danger btn-sm" role="button">加入购物车</a></p>
+          <p><%= show_add_to_cart product, html_class: "btn-xs" %></p>
         </div>
       </div>
     </div>
