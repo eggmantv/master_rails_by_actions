@@ -1,5 +1,15 @@
-.list-group-item a {
-  display: block;
+.list-group-item {
+  label {
+    font-weight: normal;
+  }
+
+  a {
+    display: block;
+
+    &.inline {
+      display: inline-block;
+    }
+  }
 }
 .msrp {
   text-decoration: line-through;

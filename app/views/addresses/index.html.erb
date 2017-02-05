@@ -1,0 +1,31 @@
+<div class="pull-right">
+  <%= link_to "新建收货地址", new_address_path, class: "btn btn-info new-address-btn" %>
+</div>
+<div class="clearfix"></div>
+<br />
+<ul class="list-group">
+  <% unless @addresses.blank? %>
+    <% @addresses.each_with_index do |address, index| %>
+      <li class="list-group-item">
+        <label>
+          <input type="radio" name="address_id" value="<%= address.id %>" <%= 'checked' if current_user.default_address == address %> />
+          <%= address.contact_name %>
+          <%= address.address %>
+          <%= address.cellphone %>
+
+          <%= link_to "编辑", edit_address_path(address), remote: true, class: "inline edit-address-btn" %>
+          <%= link_to "删除", address_path(address), remote: true, method: 'delete', "data-confirm": "确认删除该地址吗？", class: "remove-address-btn inline" %>
+          <% if current_user.default_address == address %>
+            <span class="default_address">默认地址</span>
+          <% else %>
+            <%= link_to "设为默认收货地址", set_default_address_address_path(address), remote: true, method: 'put', class: "set-default-address-btn inline" %>
+          <% end %>
+        </label>
+      </li>
+    <% end %>
+  <% else %>
+    <li class="list-group-item">
+      请添加送货地址
+    </li>
+  <% end %>
+</ul>

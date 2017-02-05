@@ -1,5 +1,39 @@
 (function() {
 
+  //收货地址
+  $(document).on('click', '.new-address-btn', function() {
+    $.get('/addresses/new', function(data) {
+      if ($('#address_form_modal').length > 0) {
+        $('#address_form_modal').remove();
+      }
+
+      $('body').append(data);
+      $('#address_form_modal').modal();
+    })
+
+    return false;
+  })
+  .on('ajax:success', '.address-form', function(e, data) {
+    if (data.status == 'ok') {
+      $('#address_form_modal').modal('hide');
+      $('#address_list').html(data.data);
+    } else {
+      $('#address_form_modal').html($(data.data).html());
+    }
+  })
+  .on('ajax:success', '.edit-address-btn', function(e, data) {
+    if ($('#address_form_modal').length > 0) {
+      $('#address_form_modal').remove();
+    }
+
+    $('body').append(data);
+    $('#address_form_modal').modal();
+  })
+  .on('ajax:success', '.set-default-address-btn, .remove-address-btn', function(e, data) {
+    $('#address_list').html(data.data);
+  })
+
+  // 购物车
   $('.add-to-cart-btn').on('click', function() {
     var $this = $(this),
         $amount = $('input[name="amount"]'),

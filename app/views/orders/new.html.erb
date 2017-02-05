@@ -1,0 +1,19 @@
+<h1>确认订单</h1>
+<div class="row">
+  <div class="container">
+    <div class="page-header">
+      <h4><i class="fa fa-map-marker"></i> 收货地址</h4>
+    </div>
+    <div id="address_list">
+
+    </div>
+  </div>
+</div>
+
+<%= content_for :javascripts do %>
+  <script>
+    $.get('/addresses', function(data) {
+      $('#address_list').html(data);
+    })
+  </script>
+<% end %>
