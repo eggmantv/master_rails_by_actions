@@ -26,7 +26,7 @@ module RandomCode
     end
 
     def generate_order_uuid
-      Date.today.to_s.split('-').join()[2..-1] << generate_utoken(5).upcase
+      Date.today.to_s.split('-').join()[2..-1] << generate_utoken(8).upcase
     end
   end
 end

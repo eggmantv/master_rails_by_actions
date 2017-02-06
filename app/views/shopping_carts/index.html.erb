@@ -30,11 +30,13 @@
       <% end -%>
     </div>
 
-    <div class="pull-right">
-      <strong>总价: ¥<%= @shopping_carts.sum { |cart| cart.amount * cart.product.price } %></strong>
-      &nbsp;
-      <%= link_to "去结算", new_order_path, class: "btn btn-danger btn-lg" %>
-    </div>
-    <div class="clearfix"></div>
+    <% unless @shopping_carts.blank? %>
+      <div class="pull-right">
+        <strong>总价: ¥<%= @shopping_carts.sum { |cart| cart.amount * cart.product.price } %></strong>
+        &nbsp;
+        <%= link_to "去结算", new_order_path, class: "btn btn-danger btn-lg" %>
+      </div>
+      <div class="clearfix"></div>
+    <% end %>
   </div>
 </div>

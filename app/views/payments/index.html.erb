@@ -1,0 +1,20 @@
+<h1>支付</h1>
+<div class="row">
+  <div class="container">
+    <div class="page-header">
+      <h4><i class="fa fa-credit-card"></i> 支付宝付款</h4>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <%= image_tag "alipay.png", width: 100 %>
+      </li>
+    </ul>
+
+    <br />
+    <div class="pull-right">
+      <%= form_tag orders_path, method: :post, class: "payment-form" do %>
+        <input type="submit" value="支付" class="btn btn-danger btn-lg" />
+      <% end %>
+    </div>
+  </div>
+</div>
