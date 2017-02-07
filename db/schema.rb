@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206061855) do
+ActiveRecord::Schema.define(version: 20170207065526) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -43,10 +43,28 @@ ActiveRecord::Schema.define(version: 20170206061855) do
     t.integer  "amount"
     t.decimal  "total_money", precision: 10, scale: 2
     t.datetime "payment_at"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.integer  "payment_id"
+    t.string   "status",                               default: "initial"
     t.index ["order_no"], name: "index_orders_on_order_no", unique: true, using: :btree
+    t.index ["payment_id"], name: "index_orders_on_payment_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
+  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "payment_no"
+    t.string   "transaction_no"
+    t.string   "status",                                                default: "initial"
+    t.decimal  "total_money",                  precision: 10, scale: 2
+    t.datetime "payment_at"
+    t.text     "raw_response",   limit: 65535
+    t.datetime "created_at",                                                                null: false
+    t.datetime "updated_at",                                                                null: false
+    t.index ["payment_no"], name: "index_payments_on_payment_no", unique: true, using: :btree
+    t.index ["transaction_no"], name: "index_payments_on_transaction_no", using: :btree
+    t.index ["user_id"], name: "index_payments_on_user_id", using: :btree
   end
 
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

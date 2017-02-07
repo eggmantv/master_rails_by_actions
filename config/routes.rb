@@ -14,7 +14,15 @@ Rails.application.routes.draw do
     end
   end
   resources :orders
-  resources :payments, only: [:index]
+  resources :payments, only: [:index] do
+    collection do
+      get :generate_pay
+      get :pay_return
+      get :pay_notify
+      get :success
+      get :failed
+    end
+  end
 
   namespace :admin do
     root 'sessions#new'
