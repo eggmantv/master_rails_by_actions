@@ -1,0 +1,2 @@
+module Dashboard::ProfileHelper
+end

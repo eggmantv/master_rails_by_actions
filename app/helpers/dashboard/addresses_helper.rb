@@ -1,0 +1,2 @@
+module Dashboard::AddressesHelper
+end

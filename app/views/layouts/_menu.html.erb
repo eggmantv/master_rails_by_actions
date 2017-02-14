@@ -34,11 +34,10 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">我的订单</a></li>
-            <li><a href="#">我的收获地址</a></li>
-            <li><a href="#">我的收藏</a></li>
+            <li><a href="<%= dashboard_orders_path %>">我的订单</a></li>
+            <li><a href="<%= dashboard_addresses_path %>">我的收货地址</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">个人信息</a></li>
+            <li><a href="<%= dashboard_password_path %>">个人信息</a></li>
           </ul>
         </li>
       </ul>
