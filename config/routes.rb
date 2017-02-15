@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       get :failed
     end
   end
+  resources :cellphone_tokens, only: [:create]
+
   namespace :dashboard do
     scope 'profile' do
       controller :profile do

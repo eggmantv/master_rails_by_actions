@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207065526) do
+ActiveRecord::Schema.define(version: 20170214090948) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20170207065526) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                           null: false
+    t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
@@ -124,11 +124,22 @@ ActiveRecord::Schema.define(version: 20170207065526) do
     t.datetime "reset_password_email_sent_at"
     t.string   "uuid"
     t.integer  "default_address_id"
+    t.string   "cellphone"
     t.index ["activation_token"], name: "index_users_on_activation_token", using: :btree
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["cellphone"], name: "index_users_on_cellphone", using: :btree
+    t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
     t.index ["uuid"], name: "index_users_on_uuid", unique: true, using: :btree
+  end
+
+  create_table "verify_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "token"
+    t.string   "cellphone"
+    t.datetime "expired_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cellphone", "token"], name: "index_verify_tokens_on_cellphone_and_token", using: :btree
   end
 
 end
