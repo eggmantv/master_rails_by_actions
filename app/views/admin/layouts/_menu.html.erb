@@ -17,6 +17,11 @@
         <li><a href="<%= admin_categories_path %>">分类</a></li>
         <li><a href="<%= admin_products_path %>">商品</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li><%= link_to "退出", logout_path, method: :delete %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </nav>
