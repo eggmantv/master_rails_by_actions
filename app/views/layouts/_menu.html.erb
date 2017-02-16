@@ -16,12 +16,15 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="<%= root_path %>">Home <span class="sr-only">(current)</span></a></li>
       </ul>
-      <form class="navbar-form navbar-left">
+      <%= form_tag search_products_path, method: :get, class: "navbar-form navbar-left" do %>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="商品名称..">
+          <% if @category %>
+            <input type="hidden" name="category_id" value="<%= @category.id %>" />
+          <% end %>
+          <input type="text" name="w" value="<%= params[:w] %>" class="form-control search-input" placeholder="<%= @category ? "在 #{@category.title} 下搜索.." : '搜索整站商品..' %>">
         </div>
         <button type="submit" class="btn btn-default">搜索</button>
-      </form>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "购物车(#{@shopping_cart_count})", shopping_carts_path %></li>
         <% unless logged_in? %>

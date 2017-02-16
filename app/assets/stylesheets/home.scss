@@ -38,3 +38,9 @@ a.add-to-cart-btn {
     display: none;
   }
 }
+
+@media (min-width: 1200px) {
+  .navbar-form .form-control.search-input {
+    width: 400px
+  }
+}
