@@ -1,6 +1,8 @@
 # Rails实战之B2C商城开发
 
-具体讲解请参考这里 **[Rails实战之B2C商城开发](http://eggman.tv/c/s-master-rails-by-actions)**
+Demo地址: http://rails5-b2c.eggman.tv
+
+项目具体讲解请参考这里 **[Rails实战之B2C商城开发](http://eggman.tv/c/s-master-rails-by-actions)**
 
 为了方便在每节课的代码间进行切换，该课程是通过git tag的方式来组织的，就是每节课对应一个git tag。
 
