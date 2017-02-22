@@ -1,6 +1,6 @@
-# eggman.tv
+# Rails实战之B2C商城开发
 
-**[Rails实战之B2C商城开发](http://eggman.tv/c/s-master-rails-by-actions)课程源码**
+具体讲解请参考这里 **[Rails实战之B2C商城开发](http://eggman.tv/c/s-master-rails-by-actions)**
 
 为了方便在每节课的代码间进行切换，该课程是通过git tag的方式来组织的，就是每节课对应一个git tag。
 
@@ -61,3 +61,7 @@ $git checkout 01
 
 - ruby和rails的初学者
 - 想从产品或者技术角度学习电商平台核心设计功能的同学
+
+# 安装
+
+Ruby和Ruby on Rails环境的安装请参考这里: [Ruby和Ruby on Rails开发环境搭建](https://eggman.tv/blogs/how-to-setup-your-ruby-on-rails-development-environment)
