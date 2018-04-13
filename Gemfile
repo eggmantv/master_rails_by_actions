@@ -31,8 +31,11 @@ gem 'font-awesome-rails'
 gem 'sorcery'
 gem 'ancestry'
 gem 'will_paginate'
-gem 'paperclip', '~> 5.0.0'
-gem 'rest-client'
+gem 'rest-client', '~> 1.7.3'
+
+gem 'loofah', '~> 2.2.1'
+gem 'nokogiri', '~> 1.8.1'
+gem 'paperclip', '~> 5.2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
